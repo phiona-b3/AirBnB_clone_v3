@@ -14,6 +14,11 @@ def close(error):
     """method that cals storage.close"""
     storage.close()
 
+@app.errorhandler(404)
+def not_found(error):
+    """Return this if the request not have a match"""
+    return jsonify({"error": "Not found"}), 404
+
 
 if __name__ == "__main__":
     port_one = '5000'
