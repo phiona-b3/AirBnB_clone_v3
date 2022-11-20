@@ -15,7 +15,7 @@ def close(error):
     storage.close()
 
 
-if __name == "__main__":
+if __name__ == "__main__":
     port_one = '5000'
     host_one = '0.0.0.0'
 
