@@ -69,13 +69,12 @@ class FileStorage:
         """call reload() method for deserializing the JSON file to objects"""
         self.reload()
     
-    #adding information from the RESTful API project
     def get(self, cls, id):
-        """a method to retrieve an object"""
+        """a method to retrieve an object for RESTful API project"""
         objects = self.all(cls).values()
         if len(objects) == 0:
             return None
-           
+
         for obj in objects:
             if obj.id == id:
                 return obj
@@ -86,5 +85,5 @@ class FileStorage:
             objects = self.all().values()
         else:
             objects = self.all(cls).values()
-                      
+
         return len(objects)
