@@ -75,13 +75,12 @@ class DBStorage:
         """call remove() method on the private session attribute"""
         self.__session.remove()
 
-    #adding information from the RESTful API project
     def get(self, cls, id):
-        """a method to retrieve an object"""
+        """a method to retrieve an object for RESTful project"""
         objects = self.all(cls).values()
         if len(objects) == 0:
             return None
-           
+
         for obj in objects:
             if obj.id == id:
                 return obj
@@ -92,5 +91,5 @@ class DBStorage:
             objects = self.all().values()
         else:
             objects = self.all(cls).values()
-                      
+
         return len(objects)
