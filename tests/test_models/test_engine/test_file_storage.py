@@ -114,14 +114,15 @@ class TestFileStorage(unittest.TestCase):
             js = f.read()
         self.assertEqual(json.loads(string), json.loads(js))
 
+
 class FileStorageAPI(unittest.TestCase):
     """test the methods updated in RESTful API"""
     def test_get_method(self):
         """test get method for the API"""
-        test  = State(name="California")
+        test = State(name="California")
         test.save()
         self.assertEqual(storage.get("State", test.id), test)
- 
+
     def test_empty_cls(self):
         """test empty cls"""
         first_state_id = list(storage.all(State).values())[0].id
@@ -132,7 +133,7 @@ class FileStorageAPI(unittest.TestCase):
         ""'test if the id is empty"""
         self.assertEqual(storage.get(State, None), None)
     def test_count(self):
-        """test for the count"""
+        """test the count"""
         counter = storage.count(State)
         test = State(name="California")
         test.save()
