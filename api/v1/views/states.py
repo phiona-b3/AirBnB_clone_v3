@@ -4,6 +4,7 @@ from api.v1.views import app_views
 from models import storage
 from models.state import State
 
+
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
 @app_views.route('/states/<state_id>', methods=['GET'], strict_slashes=False)
 
@@ -15,7 +16,7 @@ def show_states(state_id=None):
 
         for state in states:
             json_list.append(state.to_dict())
-            
+ 
             return jsonify(json_list)
 
     else:
@@ -26,7 +27,8 @@ def show_states(state_id=None):
         return jsonify(state.to_dict())
 
 
-@app_views.route('/states/<state_id>', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/states/<state_id>', methods=['DELETE'],
+                 strict_slashes=False)
 def delete_states(state_id=None):
     """deletes a state object"""
     state = storage.get(state, state_id)
