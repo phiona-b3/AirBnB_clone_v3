@@ -107,7 +107,7 @@ class TestDBStorageAPI(unittest.TestCase):
         self.assertEqual(storage.get(State, None), None)
 
     def test_count(self):
-        """test for the count"""
+        """test the count"""
         counter = storage.count(State)
         test = State(name="California")
         test.save()
