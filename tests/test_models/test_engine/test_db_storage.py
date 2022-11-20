@@ -87,14 +87,15 @@ class TestFileStorage(unittest.TestCase):
     def test_save(self):
         """Test that save properly saves objects to file.json"""
 
+
 class TestDBStorageAPI(unittest.TestCase):
     """test the methods updated in RESTful API"""
     def test_get_method(self):
         """test get method for the API"""
-        test  = State(name="California")
+        test = State(name="California")
         test.save()
         self.assertEqual(storage.get("State", test.id), test)
- 
+
     def test_empty_cls(self):
         """test empty cls"""
         first_state_id = list(storage.all(State).values())[0].id
