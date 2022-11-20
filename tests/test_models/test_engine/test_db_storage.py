@@ -86,3 +86,28 @@ class TestFileStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_save(self):
         """Test that save properly saves objects to file.json"""
+
+class TestDBStorageAPI(unittest.TestCase):
+    """test the methods updated in RESTful API"""
+    def test_get_method(self):
+        """test get method for the API"""
+        test  = State(name="California")
+        test.save()
+        self.assertEqual(storage.get("State", test.id), test)
+ 
+    def test_empty_cls(self):
+        """test empty cls"""
+        first_state_id = list(storage.all(State).values())[0].id
+        state = list(storage.all(State).values())[0]
+        self.assertEqual(storage.get(None, first_state_id), state)
+
+    def test_empty_id(slef):
+        ""'test if the id is empty"""
+        self.assertEqual(storage.get(State, None), None)
+
+    def test_count(self):
+        """test for the count"""
+        counter = storage.count(State)
+        test = State(name="California")
+        test.save()
+        self.assertEqual(storage.count(State), counter + 1)
