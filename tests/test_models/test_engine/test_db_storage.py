@@ -103,7 +103,7 @@ class TestDBStorageAPI(unittest.TestCase):
         self.assertEqual(storage.get(None, first_state_id), state)
 
     def test_empty_id(slef):
-        ""'test if the id is empty"""
+        """test if the id is empty"""
         self.assertEqual(storage.get(State, None), None)
 
     def test_count(self):
