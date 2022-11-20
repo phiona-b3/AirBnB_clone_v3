@@ -132,7 +132,7 @@ class FileStorageAPI(unittest.TestCase):
     def test_empty_id(slef):
         """test if the id is empty"""
         self.assertEqual(storage.get(State, None), None)
-    
+
     def test_count(self):
         """another test"""
         counter = storage.count(State)
