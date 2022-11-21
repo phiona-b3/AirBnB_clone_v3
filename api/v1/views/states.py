@@ -15,7 +15,7 @@ def show_states(state_id=None):
 
         for state in states:
             json_list.append(state.to_dict())
- 
+
             return jsonify(json_list)
 
     else:
