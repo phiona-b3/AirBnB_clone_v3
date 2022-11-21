@@ -72,7 +72,7 @@ def update_statte(state_id=None):
     data = request.get_json()
 
     for key, value in data.items():
-        if key != "id", key is not "created_at" or key is not "updated_at":
+        if key != "id" or key is not "created_at" or key is not "updated_at":
             setattr(state, key, value)
 
     storage.save()
