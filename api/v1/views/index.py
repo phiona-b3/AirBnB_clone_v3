@@ -23,7 +23,7 @@ def count_classes():
     classes = [Amenity, City, Place, Review, State, User]
     show = ["amenities", "cities", "places", "reviews", "states", "users"]
 
-    dict_ahow = {}
+    dict_show = {}
 
     for clas in range(len(classes)):
         dict_show[show[clas]] = storage.count(classes[clas])
