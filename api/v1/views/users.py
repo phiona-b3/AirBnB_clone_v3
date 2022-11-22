@@ -81,7 +81,7 @@ def update_user(user_id=None):
     data = request.get_json()
 
     for key, value in data.items():
-        if key != "id" or key is not "created_at" or key is not "updated_at":
+        if key != "id" or key != "created_at" or key != "updated_at":
             setattr(user, key, value)
 
     storage.save()
