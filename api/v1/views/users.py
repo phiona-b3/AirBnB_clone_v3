@@ -52,10 +52,10 @@ def create_user():
     """create a users object"""
     if not request.json:
         abort(400, description="Not a JSON")
-    
+
     if "email" not in request.get_json().keys():
         abort(400, desciption="Missing email")
-    
+
     if "password" not in request.get_json().keys():
         abort(400, description="Missing password")
 
