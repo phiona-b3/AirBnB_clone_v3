@@ -31,7 +31,7 @@ def show_states(state_id=None):
                  strict_slashes=False)
 def delete_states(state_id=None):
     """deletes a state object"""
-    state = storage.get(state, state_id)
+    state = storage.get(State, state_id)
     if state is None:
         abort(404)
     else:
@@ -60,7 +60,7 @@ def create_state():
 
 
 @app_views.route('/states/<state_id>', methods=['PUT'], strict_slashes=False)
-def update_statte(state_id=None):
+def update_state(state_id=None):
     """update state objects"""
     state = storage.get(State, state_id)
 
